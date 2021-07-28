@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
@@ -20,7 +19,9 @@ function App() {
 		<div className="App">
 			{/* define navbar component here */}
 			<Navbar />
-			<Home greetingText={greetingText} likes={likes} users={users} />
+			<div className="content">
+				<Home greetingText={greetingText} likes={likes} users={users} />
+			</div>
 		</div>
 	);
 }
