@@ -1,4 +1,6 @@
 import "./App.css";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
 
 function App() {
 	const greetingText = "Welcome to the Dojo Blog!";
@@ -14,19 +16,11 @@ function App() {
 		},
 	];
 
-	function usersList() {
-		return users.map((user) => {
-			return user.name + "\n";
-		});
-	}
-
 	return (
 		<div className="App">
-			<div className="content">
-				<h1>{greetingText}</h1>
-				<p>Liked {likes} times!</p>
-				<p>{usersList()}</p>
-			</div>
+			{/* define navbar component here */}
+			<Navbar />
+			<Home greetingText={greetingText} likes={likes} users={users} />
 		</div>
 	);
 }
