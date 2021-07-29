@@ -18,14 +18,18 @@ const Home = () => {
 		{
 			title: "Third blog",
 			body: "Lorem ipsum...",
-			author: "john wick",
+			author: "john doe",
 			id: 3,
 		},
 	]);
 
 	return (
 		<div className="home">
-			<BlogList blogs={blogs} />
+			<BlogList blogs={blogs} title="All blogs" />
+			<BlogList
+				blogs={blogs.filter((blog) => blog.author == "john doe")}
+				title="My Favorite"
+			/>
 		</div>
 	);
 };
