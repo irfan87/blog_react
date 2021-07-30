@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const CreateBlog = () => {
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
 	const [author, setAuthor] = useState("mario");
 	const [isLoading, setIsLoading] = useState(false);
-	const [message, setMessage] = useState("");
+	const blogHistory = useHistory();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -23,8 +24,10 @@ const CreateBlog = () => {
 			body: JSON.stringify(blog),
 		}).then(() => {
 			console.log("new blog added");
-			setMessage("New blog added");
 			setIsLoading(false);
+
+			// will go back to the previous page after the blog created
+			blogHistory.push("/");
 		});
 	};
 
@@ -53,7 +56,6 @@ const CreateBlog = () => {
 				</select>
 				{!isLoading && <button>Add This Blog</button>}
 				{isLoading && <button disabled>Adding New Blog...</button>}
-				{message && <div>{message}</div>}
 			</form>
 		</div>
 	);

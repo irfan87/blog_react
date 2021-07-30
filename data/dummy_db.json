@@ -29,6 +29,24 @@
       "body": "aksdlakdsasjs",
       "author": "mario",
       "id": 5
+    },
+    {
+      "title": "other test",
+      "body": "test other test",
+      "author": "yoshi",
+      "id": 6
+    },
+    {
+      "title": "this is why I love react",
+      "body": "react is so easy to implement, as long as you know how JS works.",
+      "author": "mario",
+      "id": 7
+    },
+    {
+      "title": "lalalal",
+      "body": "lalala",
+      "author": "mario",
+      "id": 8
     }
   ]
 }
