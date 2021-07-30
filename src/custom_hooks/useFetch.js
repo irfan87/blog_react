@@ -7,8 +7,12 @@ const useFetch = (url) => {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
+		// abortController will trigger when the browser abort the session
+		// check the AbortController in https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+		const abortController = new AbortController();
+
 		setTimeout(() => {
-			fetch(url)
+			fetch(url, { signal: abortController.signal })
 				.then((res) => {
 					if (!res.ok) {
 						// throw Error("Unable to fetch the data from the server");
@@ -22,10 +26,16 @@ const useFetch = (url) => {
 					setError(null);
 				})
 				.catch((e) => {
-					setIsLoading(false);
-					setError(e.message);
+					if (e.name === "AbortError") {
+						console.log("fetch aborted");
+					} else {
+						setIsLoading(false);
+						setError(e.message);
+					}
 				});
-		}, 200);
+		}, 1000);
+
+		return () => abortController.abort();
 	}, [url]);
 
 	return {
