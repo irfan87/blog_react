@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BlogDetails from "./components/BlogDetails";
 import CreateBlog from "./components/CreateBlog";
 
 import Home from "./components/Home";
@@ -14,6 +15,7 @@ function App() {
 					<Switch>
 						<Route component={Home} exact path="/" />
 						<Route component={CreateBlog} path="/create" />
+						<Route component={BlogDetails} path="/blogs/:id" />
 					</Switch>
 				</div>
 			</div>
