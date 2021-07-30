@@ -118,3 +118,10 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* 404 page */
+.not-found h2 {
+  color: #f1356d;
+  font-size: 20px;
+  margin-bottom: 30px;
+}

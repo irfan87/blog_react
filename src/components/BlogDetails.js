@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 
 import useFetch from "../custom_hooks/useFetch";
 
@@ -21,7 +21,13 @@ const BlogDetails = () => {
 	return (
 		<div className="blog-details">
 			{isLoading && <div>Loading your selected blog...</div>}
-			{error && <div>Unable to load your selected blog...</div>}
+			{error && (
+				<div>
+					<h2>Opppsss</h2>
+					<p>The blog that you are looking for is not exists...</p>
+					<Link to="/">Home</Link>
+				</div>
+			)}
 			{blog && (
 				<article>
 					<h2>{blog.title}</h2>

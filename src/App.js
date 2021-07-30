@@ -4,6 +4,7 @@ import CreateBlog from "./components/CreateBlog";
 
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Page404 from "./components/page_404";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 						<Route component={Home} exact path="/" />
 						<Route component={CreateBlog} path="/create" />
 						<Route component={BlogDetails} path="/blogs/:id" />
+						<Route component={Page404} path="*" />
 					</Switch>
 				</div>
 			</div>
